@@ -43,3 +43,5 @@ app.get('/grph/:filename', function(req, res) {
         .on('err', function() { res.status(501).send('err during download') })
         .on('finish', function () { res.status(200) });
 })
+
+module.exports = app;
