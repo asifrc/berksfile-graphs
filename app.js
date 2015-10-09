@@ -6,18 +6,12 @@ var liner = require('./lib/LineStream.js')
 var parser = require('./lib/GraphStream.js');
 var s3upload = require('./lib/S3UploadStream.js');
 
-var AWS = require('aws-sdk');
-AWS.config.region = process.env.AWS_REGION || 'eu-west-1';
-var S3_BUCKET = process.env.S3_BUCKET
-
 var app = express();
 app.set('views', path.join(__dirname, 'res', 'views'));
 app.set('view engine', 'jade');
 app.locals.pretty = true;
-app.set('port', process.env.PORT || 5000);
 app.use(express.static(path.join(__dirname, 'res', 'public')));
 
-app.listen(app.get('port'));
 app.get('/', function(req, res) {
     res.render('index')
 });
